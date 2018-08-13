@@ -1,0 +1,14 @@
+{
+  "Home": "Главная",
+  "Eureka": "Эврика",
+  "Instances": "Экземпляры",
+  "History": "История",
+  "Replicas": "Реплики",
+  "Configuration": "Настройки",
+  "Cloud config": "Облачные настройки",
+  "Encryption": "Шифрование",
+  "Administration": "Администрирование",
+  "Metrics": "Метрики",
+  "Logs": "Журналы",
+  "Loggers": "Настройка журналов"
+}

@@ -1,0 +1,153 @@
+<div [ngSwitch]="isAuthenticated()">
+    <h1 class="text-center">{{'Cloud Config' | translate}}</h1>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div *ngSwitchCase="true">
+                <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>{{'You are not authenticated.' | translate}}</span>
+                <a class="alert-link" (click)="login()">{{'Please sign in' | translate}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngSwitchCase="true">
+        <div class="col-sm-12 col-md-8">
+            <div *ngIf="appInstances">
+                <div class="card card-outline-primary no-padding-top">
+                    <div class="card-header card-primary">
+                        <h3 class="card-title">{{'Instances Registered' | translate}}</h3>
+                    </div>
+                    <div class="card-block">
+                        <!--{vm.apps.applications}}-->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="25%">{{'App' | translate}}</th>
+                                <th width="45%">{{'Instance ID' | translate}}</th>
+                                <th class="text-center">{{'Info' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr *ngFor="let app of appInstances">
+                                <td>
+                                    {{app.name}}
+                                    <span class="badge badge-pill font-weight-normal"
+                                          [ngClass]="getBadgeClass(app.status)">
+                                        {{app.status}}
+                                    </span>
+                                </td>
+                                <td class="break">{{app.instanceId}}</td>
+                                <td class="text-center">
+                                    <span *ngFor="let entry of (app.metadata | keys )">
+                                        <span class="badge badge-default font-weight-normal">
+                                            <span class="badge badge-pill badge-info font-weight-normal">{{entry.key}}</span>
+                                            {{entry.value}}
+                                        </span>
+                                    </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-4 padding-top-10px">
+            <div *ngIf="status">
+                <div class="card card-outline-primary">
+                    <div class="card-header card-primary">
+                        <h3 class="card-title">{{'System Status' | translate}}</h3>
+                    </div>
+                    <div class="card-block">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>{{'Environment' | translate}}</td>
+                                <td>{{status.environment}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Data Center' | translate}}</td>
+                                <td>{{status.datacenter}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Current Time' | translate}}</td>
+                                <td>{{status.currentTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'System Uptime' | translate}}</td>
+                                <td>{{status.upTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Below Renew Threshold' | translate}}</td>
+                                <td>{{status.isBelowRenewThreshold}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="status">
+                <div class="card card-outline-primary">
+                    <div class="card-header card-primary">
+                        <h3 class="card-title">{{'General Info' | translate}}</h3>
+                    </div>
+                    <div class="card-block">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <td>{{'Total Available Memory' | translate}}</td>
+                                <td>{{status.generalStats['total-avail-memory']}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Current Memory Usage' | translate}}</td>
+                                <td>{{status.generalStats['current-memory-usage']}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Number of CPU' | translate}}</td>
+                                <td>{{status.generalStats['num-of-cpus']}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Instance Ip Address' | translate}}</td>
+                                <td>{{status.instanceInfo.ipAddr}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Instance Status' | translate}}</td>
+                                <td>
+                                <span class="badge badge-pill font-weight-normal"
+                                      [ngClass]="getBadgeClass(status.instanceInfo.status)">
+                                    {{status.instanceInfo.status}}
+                                </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="healthData">
+                <div class="card card-outline-primary">
+                    <div class="card-header card-primary">
+                        <h3 class="card-title">{{'Health' | translate}}</h3>
+                    </div>
+                    <div class="card-block">
+                        <table id="healthCheck" class="table">
+                            <tbody>
+                            <tr *ngFor="let health of healthData">
+                                <td><span class="text-capitalize">{{baseName(health.name)}}</span>
+                                    {{subSystemName(health.name)}}
+                                </td>
+                                <td class="text-center">
+                            <span class="badge badge-pill font-weight-normal" [ngClass]="getBadgeClass(health.status)">
+                                {{health.status}}
+                            </span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "Sign in": "Вход",
+  "Failed to sign in!": "Ошибка авторизации!",
+  "Please check your credentials and try again.": "Проверьте свои учетные данные и попробуйте снова.",
+  "Login": "Логин",
+  "Password": "Пароль",
+  "Remember me": "Запомнить меня",
+  "Your username": "Ваш логин",
+  "Your password": "Ваш пароль",
+  "You are not authenticated.": "Вы не авторизованы.",
+  "Please sign in": "Пожалуйста войдите"
+}

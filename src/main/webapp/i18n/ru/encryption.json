@@ -1,0 +1,10 @@
+{
+  "Encrypt and decrypt properties": "Шифрование и расшифровка свойств",
+  "Encrypt": "Шифровать",
+  "Decrypt": "Расшифровать",
+  "Result:": "Результат:",
+  "show more": "подсказка",
+  "show less": "скрыть",
+  "Using Encryption": "Использование шифрования",
+  "In order to not leave your secrets in plain text at rest, encrypt them using this UI. Then store the encrypted value like this:": "Чтобы не оставлять секретные данные в виде обычного текста, зашифруйте их. Затем сохраните зашифрованное значение следующим образом:"
+}

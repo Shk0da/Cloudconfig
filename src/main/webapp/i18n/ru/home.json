@@ -1,0 +1,20 @@
+{
+  "Cloud Config": "Облачный Конфигуратор",
+  "App": "Приложение",
+  "Instances Registered": "Зарегистрированные приложения",
+  "Instance ID": "Идентификатор",
+  "Info": "Информация",
+  "System Status": "Статус системы",
+  "Environment": "Окружение",
+  "Data Center": "Вычислительный центр",
+  "Current Time": "Текущее время",
+  "System Uptime": "Время с момента заупска",
+  "Below Renew Threshold": "Работа в кластере",
+  "General Info": "Общая информация",
+  "Total Available Memory": "Доступная память",
+  "Current Memory Usage": "Используемая память",
+  "Number of CPU": "Кол-во процессоров",
+  "Instance Ip Address": "Интернет адрес",
+  "Instance Status": "Статус",
+  "Health": "Здоровье"
+}

@@ -1,0 +1,10 @@
+{
+  "Encrypt and decrypt properties": "Encrypt and decrypt properties",
+  "Encrypt": "Encrypt",
+  "Decrypt": "Decrypt",
+  "Result:": "Result:",
+  "show more": "show more",
+  "show less": "show less",
+  "Using Encryption": "Using Encryption",
+  "In order to not leave your secrets in plain text at rest, encrypt them using this UI. Then store the encrypted value like this:": "In order to not leave your secrets in plain text at rest, encrypt them using this UI. Then store the encrypted value like this:"
+}

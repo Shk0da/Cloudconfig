@@ -1,0 +1,50 @@
+<form #form="ngForm" (ngSubmit)="refresh()">
+    <div class="form-group">
+        <label for="profile"><strong>{{'Application' | translate}}</strong></label>
+        <input type="text"
+               class="form-control"
+               id="application"
+               name="application"
+               list="appList"
+               [(ngModel)]="application"
+               (ngModelChange)="refresh()"
+               required>
+        <datalist id="appList">
+            <option *ngFor="let app of applications" value="{{app}}">
+        </datalist>
+    </div>
+
+    <div class="form-group">
+        <label for="profile"><strong>{{'Profile' | translate}}</strong></label>
+        <input type="text"
+               class="form-control"
+               id="profile"
+               name="profile"
+               list="profileList"
+               [(ngModel)]="profile"
+               (ngModelChange)="refresh()"
+               required>
+        <datalist id="profileList">
+            <option *ngFor="let profile of profiles" value="{{profile}}">
+        </datalist>
+    </div>
+
+    <div class="form-group" *ngIf="!isNative">
+        <label for="label"><strong>{{'Git Label' | translate}}</strong></label>
+        <input type="text"
+               class="form-control"
+               id="label"
+               name="label"
+               list="labelList"
+               [(ngModel)]="label"
+               (ngModelChange)="refresh()"
+               required>
+        <datalist id="labelList">
+            <option value="master">
+            <option value="testing">
+            <option value="staging">
+            <option value="production">
+        </datalist>
+    </div>
+    <input type="submit" style="display: none;">
+</form>

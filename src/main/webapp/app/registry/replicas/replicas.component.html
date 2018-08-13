@@ -1,0 +1,22 @@
+<div>
+    <div class="head">
+        <h2 class="d-inline-block">{{'Cloud Config Replicas' | translate}}</h2>
+        <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
+    </div>
+
+    <div id="replicas" class="panel panel-default">
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr *ngFor="let replica of replicas">
+                        <td>
+                            <a href="http://{{replica}}">{{replica}}</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

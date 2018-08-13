@@ -1,0 +1,14 @@
+{
+  "Home": "Home",
+  "Eureka": "Eureka",
+  "Instances": "Instances",
+  "History": "History",
+  "Replicas": "Replicas",
+  "Configuration": "Configuration",
+  "Cloud config": "Cloud config",
+  "Encryption": "Encryption",
+  "Administration": "Administration",
+  "Metrics": "Metrics",
+  "Logs": "Logs",
+  "Loggers": "Loggers"
+}

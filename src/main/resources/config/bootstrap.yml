@@ -1,0 +1,33 @@
+# ===================================================================
+# Spring Cloud Config bootstrap configuration for the "dev" profile
+# In prod profile, properties will be overwriten by the ones defined in bootstrap-prod.yml
+# ===================================================================
+
+spring:
+    application:
+        name: cloudconfig
+    profiles:
+        active: dev
+        include: native,composite
+    cloud:
+        config:
+            server:
+                bootstrap: true
+                composite:
+                    - type: native
+                      search-locations: file:./config
+                    - type: native
+                      search-locations: file:./central-config-dev
+                prefix: /config
+                git:
+            fail-fast: true
+            # name of the config server's property source (file.yml) that we want to use
+            name: cloudconfig
+            profile: dev # profile(s) of the property source
+
+info:
+    project:
+        version: 1.0
+
+encrypt:
+    key: dcfjdch*(R&^&*(%^@(&*bv3bv10832cv3u9vnr-23n9ctr0u

@@ -1,0 +1,20 @@
+{
+  "Cloud Config": "Cloud Config",
+  "App": "App",
+  "Instances Registered": "Instances Registered",
+  "Instance ID": "Instance ID",
+  "Info": "Info",
+  "System Status": "System Status",
+  "Environment": "Environment",
+  "Data Center": "Data Center",
+  "Current Time": "Current Time",
+  "System Uptime": "System Uptime",
+  "Below Renew Threshold": "Below Renew Threshold",
+  "General Info": "General Info",
+  "Total Available Memory": "Total Available Memory",
+  "Current Memory Usage": "Current Memory Usage",
+  "Number of CPU": "Number of CPU",
+  "Instance Ip Address": "Instance Ip Address",
+  "Instance Status": "Instance Status",
+  "Health": "Health"
+}

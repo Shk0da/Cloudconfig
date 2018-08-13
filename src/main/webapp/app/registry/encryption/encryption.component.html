@@ -1,0 +1,60 @@
+<div>
+    <div class="head">
+        <h2 class="d-inline-block">{{'Encrypt and decrypt properties' | translate}}</h2>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ngb-tabset type="pills" class="nav-fill">
+                <ngb-tab title="{{'Encrypt' | translate}}" id="encrypt">
+                    <ng-template ngbTabContent>
+                        <form>
+                            <textarea type="text" class="form-control my-1" id="textToEncrypt"
+                                   required
+                                   [(ngModel)]="textToEncrypt" name="encryptText"
+                                      #name="ngModel"></textarea>
+                            <button type="submit" class="btn btn-success" [disabled]="textToEncrypt === ''" (click)="encrypt()">{{'Encrypt' | translate}}</button>
+                        </form>
+                    </ng-template>
+                </ngb-tab>
+                <ngb-tab title="{{'Decrypt' | translate}}" id="decrypt">
+                    <ng-template ngbTabContent>
+                        <form>
+                            <textarea type="text" class="form-control my-1" id="encryptedText"
+                                   required
+                                   [(ngModel)]="encryptedText" name="decryptText"
+                                   #name="ngModel"></textarea>
+                            <button type="submit" class="btn btn-success" [disabled]="encryptedText === ''" (click)="decrypt()">{{'Decrypt' | translate}}</button>
+                        </form>
+                    </ng-template>
+                </ngb-tab>
+            </ngb-tabset>
+
+            <div *ngIf="result">
+                <h3>{{'Result:' | translate}}</h3>
+                <pre class="code-block">{{result}}</pre>
+            </div>
+            <jhi-alert-error></jhi-alert-error>
+        </div>
+
+        <div class="text-center pad" >
+            <a (click)="showMore = !showMore" class="btn btn-default">
+                <span *ngIf="showMore">
+                    <span class="fa fa-arrow-circle-down"></span>&nbsp;{{'show more' | translate}}
+                </span>
+                    <span *ngIf="!showMore">
+                    <span class="fa fa-arrow-circle-up"></span>&nbsp;{{'show less' | translate}}
+                </span>
+            </a>
+        </div>
+        <div [ngbCollapse]="showMore">
+            <h3><span class="fa fa-info-circle"></span> {{'Using Encryption' | translate}}</h3>
+            <p>
+                {{'In order to not leave your secrets in plain text at rest, encrypt them using this UI. Then store the encrypted value like this:' | translate}}
+            </p>
+            <pre class="code-block">
+sample:
+    property: '{{ '{' }}cipher{{ '}' }}FKSAJDFGYOS8F7GLHAKERGFHLSAJ'
+            </pre>
+        </div>
+    </div>
+</div>

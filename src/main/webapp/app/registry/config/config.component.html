@@ -1,0 +1,71 @@
+<div>
+    <div class="head">
+        <h2 class="d-inline-block">{{'Spring Cloud Configuration' | translate}}</h2>
+        <jhi-refresh-selector class="float-right refresh-left-side"></jhi-refresh-selector>
+    </div>
+
+    <jhi-config-selector></jhi-config-selector>
+
+    <div *ngIf="content">
+        <h3>{{'Configuration' | translate}}</h3>
+        <ngb-tabset type="pills">
+            <ngb-tab title="YAML" id="yaml">
+                <ng-template ngbTabContent>
+                    <pre class="code-block">{{configAsYaml}}</pre>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Properties" id="properties">
+                <ng-template ngbTabContent>
+                    <pre class="code-block">{{configAsProperties}}</pre>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="JSON" id="json">
+                <ng-template ngbTabContent>
+                    <pre class="code-block">{{configAsJson}}</pre>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Table" id="table">
+                <ng-template ngbTabContent>
+                    <table class="table table-striped table-bordered table-responsive d-table">
+                        <thead>
+                        <tr>
+                            <th>{{'Properties' | translate}}</th>
+                            <th>{{'Value' | translate}}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let property of configAsKeyValuePairs">
+                            <td>{{ property.key }}</td>
+                            <td>{{ property.value }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+            </ngb-tab>
+            <ngb-tab title="{{'Edit' | translate}}" id="edit">
+                <ng-template ngbTabContent>
+                    <textarea class="form-control" rows="10" (keydown)="onKeyDown($event)" [(ngModel)]="content"></textarea>
+                    <p class="text-right">{{'Press Alt+S to Save' | translate}}</p>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+
+    <h3 class="head bottom">{{'Configuration Sources' | translate}}</h3>
+    <table class="table table-striped">
+        <thead>
+            <th>{{'Index' | translate}}</th>
+            <th>{{'Configuration' | translate}}</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let source of configurationSources; let index=index">
+            <td>{{ index }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let prop of getKeys(source)">{{ prop }}: {{ source[prop] | json}}</li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
